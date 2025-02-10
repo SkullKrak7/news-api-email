@@ -14,12 +14,11 @@ url = "https://newsapi.org/v2/everything?" \
 
 request = requests.get(url)
 content = request.json()
-body = ""
+body = "Subject: Today's News" + "\n"
 
 for article in content['articles'][:20]:
     if article['title'] is not None:
-        body = "Subject: Today's News"\
-            + "\n" + body + article['title'] + "\n"\
+        body = body + article['title'] + "\n"\
             + article['description']\
             + "\n" + article["url"] + 2 * "\n"
 
